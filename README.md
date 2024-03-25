@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Puzzle Ground
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+This project consists of three different games: an Interactive Light-Up Puzzle, an Interactive Storybook, and Tic-Tac-Toe with an Undo feature and Move History. The Interactive Light-Up Puzzle challenges users to turn off all the lights in a circle, the Interactive Storybook provides a simple way to navigate through a story, and Tic-Tac-Toe offers a classic game with added functionality.
 
-## Available Scripts
+## Project Type
+Frontend
 
-In the project directory, you can run:
+## Deplolyed App
+Frontend: [Puzzle-Ground](https://machine-coding-jk03.vercel.app/)
 
-### `npm start`
+ ## Directory Structure
+```bash
+ machine-coding/
+├─ src/
+│  ├─ allRoutes
+│  │  ├─ MainRoutes.jsx
+│  ├─ assets/
+│  ├─ components/
+│  │  ├─ InteractiveStorybook.jsx
+│  │  ├─ LightUpPuzzle.jsx
+│  │  ├─ Navbar.tsx
+│  │  ├─ TicTacToe.jsx
+│  ├─ pages/
+│  │  ├─ Home.jsx
+│  ├─ App.js
+│  ├─ index.js
+├─ public/
+│  ├─ index.html
+├─ README.md
+├─ package-lock.json
+├─ package.json
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+### Light-Up Puzzle
+* Circular arrangement of light bulbs.
+* Clicking toggles the state of bulbs and its immediate neighbors.
+* Random initial state with the task to turn off all lights.
+* Move counter tracking.
+### Interactive Storybook
+* Simple UI with "Next" and "Previous" buttons.
+* Display area showing text and images for storytelling.
+* Sequential navigation through the story.
+* Looping back to the beginning after reaching the end.
+### Tic-Tac-Toe with Undo Feature and Move History
+* Classic 3x3 grid gameplay.
+* Two-player mode with turn tracking.
+* Ability to undo moves.
+* Display of move history.
+* Win/draw detection.
+* Restart functionality.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## design decisions or assumptions
+* Circular layout for the Interactive Light-Up Puzzle.
+* Assumed linear storytelling for the Interactive Storybook.
+* Standard Tic-Tac-Toe rules with additional features for undo and move history.
 
-### `npm test`
+## Installation & Getting started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   
+2. **Change into the project directory:**
+   ```bash
+   cd <project-directory>
+   
+3. **Install dependencies:**
+   ```bash
+   npm install
+   
+4. **Start the development server:**
+   ```bash
+   npm run start
 
-### `npm run build`
+The app will be running on `http://localhost:3000/`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+* Open the provided URLs for the deployed apps.
+* Follow on-screen instructions to play the games.
+* Solve the Light-Up Puzzle by toggling lights.
+* Navigate the Interactive Storybook with "Next" and "Previous" buttons.
+* Play Tic-Tac-Toe with the classic rules and additional features.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technology Stack
+Frontend: HTML, CSS, JavaScript, React.js
