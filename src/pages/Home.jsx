@@ -12,7 +12,7 @@ export const Home = () => {
   ];
   return (
     <div className="home-container">
-      <h1>Games Section</h1>
+      <h1>Puzzle Ground</h1>
       <div>
         {images?.map((el, i) => {
           return (
