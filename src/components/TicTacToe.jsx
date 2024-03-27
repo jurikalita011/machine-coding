@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import undo from "../assets/undo.svg";
+import restart from "../assets/restart.svg";
 
 export const TicTacToe = () => {
   const [grid, setGrid] = useState(new Array(3).fill(Array(3).fill(null)));
@@ -79,9 +81,28 @@ export const TicTacToe = () => {
           onClick={handleUndo}
           disabled={moveHistory.length === 0 || winner}
         >
-          Undo
+          <div>
+            <p>Undo</p>
+            <img src={undo} alt="undo" />
+          </div>
         </button>
-        <button onClick={handleRestart}>Restart</button>
+        <button onClick={handleRestart}>
+          <div>
+            <p>Restart</p>
+            <img src={restart} alt="restart" />
+          </div>
+        </button>
+      </div>
+
+      <div>
+        {moveHistory.length > 0 && <h1>Move History</h1>}
+        <ul>
+          {moveHistory.map((move, index) => (
+            <li key={index}>
+              Player {move.player} to {move.position}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="grid">
         {grid.map((row, rowIndex) => (
@@ -103,18 +124,15 @@ export const TicTacToe = () => {
       </div>
 
       <div>
-        <h2>Move History</h2>
-        <ul>
-          {moveHistory.map((move, index) => (
-            <li key={index}>
-              Player {move.player} to {move.position}
-            </li>
-          ))}
-        </ul>
+        {winner && (
+          <h1 style={{ color: winner === "Draw" ? "red" : "green" }}>
+            {winner === "Draw" ? "It's a draw!" : `Player ${winner} wins!`}
+          </h1>
+        )}
+        {winner === "Draw" && (
+          <button onClick={handleRestart}>Play Again</button>
+        )}
       </div>
-      {winner && (
-        <h3>{winner === "Draw" ? "It's a draw!" : `Player ${winner} wins!`}</h3>
-      )}
     </div>
   );
 };
