@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import undo from "../assets/undo.svg";
 import restart from "../assets/restart.svg";
+import { Box, Button, Heading, Image, Text } from "@chakra-ui/react";
+import styles from "../styles/TicTacToe.module.css";
 
 export const TicTacToe = () => {
   const [grid, setGrid] = useState(new Array(3).fill(Array(3).fill(null)));
@@ -75,27 +77,27 @@ export const TicTacToe = () => {
   };
 
   return (
-    <div className="tictactoe-container">
-      <div>
-        <button
+    <Box className={styles.container}>
+      <Box>
+        <Button
           onClick={handleUndo}
           disabled={moveHistory.length === 0 || winner}
         >
-          <div>
-            <p>Undo</p>
-            <img src={undo} alt="undo" />
-          </div>
-        </button>
-        <button onClick={handleRestart}>
-          <div>
-            <p>Restart</p>
-            <img src={restart} alt="restart" />
-          </div>
-        </button>
-      </div>
+          <Box>
+            <Text>Undo</Text>
+            <Image src={undo} alt="undo" />
+          </Box>
+        </Button>
+        <Button onClick={handleRestart}>
+          <Box>
+            <Text>Restart</Text>
+            <Image src={restart} alt="restart" />
+          </Box>
+        </Button>
+      </Box>
 
-      <div>
-        {moveHistory.length > 0 && <h1>Move History</h1>}
+      <Box>
+        {moveHistory.length > 0 && <Heading as={"h1"}>Move History</Heading>}
         <ul>
           {moveHistory.map((move, index) => (
             <li key={index}>
@@ -103,36 +105,39 @@ export const TicTacToe = () => {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="grid">
+      </Box>
+      <Box className={styles.grid}>
         {grid.map((row, rowIndex) => (
-          <div key={rowIndex} className="row">
+          <Box key={rowIndex} className={styles.row}>
             {row.map((cell, colIndex) => (
-              <div
+              <Box
                 key={colIndex}
-                className="cell"
+                className={styles.cell}
                 style={{
                   color: cell === "X" ? "red" : "blue",
                 }}
                 onClick={() => handleClick(rowIndex, colIndex)}
               >
                 {cell}
-              </div>
+              </Box>
             ))}
-          </div>
+          </Box>
         ))}
-      </div>
+      </Box>
 
-      <div>
+      <Box>
         {winner && (
-          <h1 style={{ color: winner === "Draw" ? "red" : "green" }}>
+          <Heading
+            as={"h1"}
+            style={{ color: winner === "Draw" ? "red" : "green" }}
+          >
             {winner === "Draw" ? "It's a draw!" : `Player ${winner} wins!`}
-          </h1>
+          </Heading>
         )}
         {winner === "Draw" && (
-          <button onClick={handleRestart}>Play Again</button>
+          <Button onClick={handleRestart}>Play Again</Button>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

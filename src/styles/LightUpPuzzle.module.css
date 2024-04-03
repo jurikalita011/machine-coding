@@ -1,0 +1,76 @@
+.bulbContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  > h1 {
+    position: absolute;
+    top: 0;
+    left: 45%;
+  }
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: aliceblue;
+    position: relative;
+  }
+}
+
+.bulb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 20%;
+
+  margin: 5%;
+  cursor: pointer;
+  color: red;
+}
+
+.bulb:nth-child(1) {
+  position: absolute;
+  top: 25%;
+  left: 4%;
+  border-radius: 50%;
+}
+
+.bulb:nth-child(2) {
+  position: absolute;
+  top: 5px;
+  left: 35%;
+  border-radius: 50%;
+}
+
+.bulb:nth-child(3) {
+  position: absolute;
+  top: 23%;
+  right: 3%;
+  border-radius: 50%;
+}
+
+.bulb:nth-child(4) {
+  position: absolute;
+  bottom: 10%;
+  right: 13%;
+  border-radius: 50%;
+}
+
+.bulb:nth-child(5) {
+  position: absolute;
+  bottom: 8%;
+  left: 17%;
+  border-radius: 50%;
+}
+
+.bulb.on {
+  background-color: #ff0;
+}
+
+.bulb.off {
+  background-color: #222;
+}

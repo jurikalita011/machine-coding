@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Box, Heading, useToast } from "@chakra-ui/react";
+import styles from "../styles/LightUpPuzzle.module.css";
 
 export const LightUpPuzzle = () => {
   const size = 5;
@@ -13,6 +15,7 @@ export const LightUpPuzzle = () => {
 
   const [bulbs, setBulbs] = useState(initializeBulbs());
   const [moves, setMoves] = useState(0);
+  const toast = useToast();
 
   const toggleBulb = (index) => {
     const newBulbs = [...bulbs];
@@ -22,7 +25,15 @@ export const LightUpPuzzle = () => {
     setBulbs(newBulbs);
     setMoves((prev) => prev + 1);
     if (newBulbs.every((bulb) => !bulb)) {
-      alert(`Congratulations! You solved the puzzle in ${moves + 1} moves.`);
+      toast({
+        title: "Congratulations!",
+        description: `You solved the puzzle in ${moves + 1} moves.`,
+        status: "success",
+        duration: 4000,
+        position: "top",
+        isClosable: true,
+      });
+      // alert(`Congratulations! You solved the puzzle in ${moves + 1} moves.`);
       resetGame();
     }
   };
@@ -31,21 +42,28 @@ export const LightUpPuzzle = () => {
     setMoves(0);
     setBulbs(initializeBulbs());
   };
-  // console.log(bulbs);
+
   return (
-    <div className="bulb-container">
-      <h1>Moves : {moves}</h1>
-      <div>
+    <Box className={styles.bulbContainer}>
+      <Heading as="h1" mb={4}>
+        Moves: {moves}
+      </Heading>
+      <Box display="flex" justifyContent="center">
         {bulbs.map((bulb, index) => (
-          <div
+          <Box
             key={index}
-            className={`bulb ${bulb ? "on" : "off"}`}
+            className={`${styles.bulb} ${bulb ? styles.on : styles.off}`}
             onClick={() => toggleBulb(index)}
+            borderWidth="1px"
+            borderRadius="md"
+            cursor="pointer"
+            p={4}
+            mx={2}
           >
             {index + 1}
-          </div>
+          </Box>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

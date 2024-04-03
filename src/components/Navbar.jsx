@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -5,7 +6,7 @@ export const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="navCont">
+    <Box className="navCont">
       <Link to={"/"} className={location.pathname === "/" ? "current" : ""}>
         Home
       </Link>
@@ -27,6 +28,6 @@ export const Navbar = () => {
       >
         Tic-Tac-Toe
       </Link>
-    </div>
+    </Box>
   );
 };

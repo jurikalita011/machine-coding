@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { Box, Button, Image } from "@chakra-ui/react";
+import styles from "../styles/StoryBook.module.css";
 export const InteractiveStorybook = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -30,16 +31,23 @@ export const InteractiveStorybook = () => {
       prevPage === 0 ? stories.length - 1 : prevPage - 1
     );
   };
+
   return (
-    <div className="story-container">
-      <div>
-        <img src={stories[currentPage].image} alt="Story" />
+    <Box
+      className={styles.storyContainer}
+      display="flex"
+      flexDirection="column"
+    >
+      <Box>
+        <Image src={stories[currentPage].image} alt="Story" />
         <p>{stories[currentPage].text}</p>
-      </div>
-      <div>
-        <button onClick={handlePreviousPage}>Previous</button>
-        <button onClick={handleNextPage}>Next</button>
-      </div>
-    </div>
+      </Box>
+      <Box>
+        <Button onClick={handlePreviousPage} mr={2}>
+          Previous
+        </Button>
+        <Button onClick={handleNextPage}>Next</Button>
+      </Box>
+    </Box>
   );
 };
